@@ -57,7 +57,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ input: userInput }),
+      body: JSON.stringify({ "input": userInput }),
     });
     const data = await response.json();
     let lastPrompt = userInput;
