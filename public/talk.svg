@@ -1,52 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:ns1="http://sozi.baierouge.fr"
-    xmlns:cc="http://web.resource.org/cc/"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    id="Layer_1"
-    enable-background="new 0 0 100 100"
-    xml:space="preserve"
-    viewBox="0 0 100 100"
-    version="1.1"
-    y="0px"
-    x="0px"
-  >
-<path
-      d="m76.752 5h-53.504c-9.85 0-17.835 7.985-17.835 17.835v32.697c0 8.663 6.178 15.877 14.367 17.492v21.976l19.1-19.1-10.637-2.533h48.509c9.85 0 17.835-7.985 17.835-17.835v-32.697c0-9.85-7.984-17.835-17.835-17.835zm-44.587 28.734c3.005 0 5.45 2.445 5.45 5.45 0 3.004-2.445 5.45-5.45 5.45s-5.45-2.445-5.45-5.45c0.001-3.005 2.445-5.45 5.45-5.45zm17.835 10.899c-3.005 0-5.45-2.445-5.45-5.45 0-3.004 2.445-5.45 5.45-5.45s5.45 2.445 5.45 5.45c0 3.005-2.445 5.45-5.45 5.45zm17.835 0c-3.005 0-5.45-2.445-5.45-5.45 0-3.004 2.445-5.45 5.45-5.45s5.45 2.445 5.45 5.45c-0.001 3.005-2.445 5.45-5.45 5.45z"
-  />
-<metadata
-    ><rdf:RDF
-      ><cc:Work
-        ><dc:format
-          >image/svg+xml</dc:format
-        ><dc:type
-            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-        /><cc:license
-            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
-        /><dc:publisher
-          ><cc:Agent
-              rdf:about="http://openclipart.org/"
-            ><dc:title
-              >Openclipart</dc:title
-            ></cc:Agent
-          ></dc:publisher
-        ></cc:Work
-      ><cc:License
-          rdf:about="http://creativecommons.org/licenses/publicdomain/"
-        ><cc:permits
-            rdf:resource="http://creativecommons.org/ns#Reproduction"
-        /><cc:permits
-            rdf:resource="http://creativecommons.org/ns#Distribution"
-        /><cc:permits
-            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
-        /></cc:License
-      ></rdf:RDF
-    ></metadata
-  ></svg
->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="Layer_1" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:ns1="http://sozi.baierouge.fr" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+	 style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<path d="M76.8,5H23.2C13.4,5,5.4,13,5.4,22.8v32.7c0,8.7,6.2,15.9,14.4,17.5v22l19.1-19.1l-10.6-2.5h48.5c9.8,0,17.8-8,17.8-17.8
+	V22.8C94.6,13,86.6,5,76.8,5z M32.2,33.7c3,0,5.5,2.4,5.5,5.5c0,3-2.4,5.5-5.5,5.5s-5.5-2.4-5.5-5.5C26.7,36.2,29.2,33.7,32.2,33.7z
+	 M50,44.6c-3,0-5.5-2.4-5.5-5.5c0-3,2.4-5.5,5.5-5.5s5.5,2.4,5.5,5.5S53,44.6,50,44.6z M67.8,44.6c-3,0-5.5-2.4-5.5-5.5
+	c0-3,2.4-5.5,5.5-5.5s5.4,2.4,5.4,5.5C73.3,42.2,70.8,44.6,67.8,44.6z"/>
+</svg>
