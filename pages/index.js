@@ -1,8 +1,25 @@
 import { useState, useCallback, useRef } from "react";
 import enTranslations from '@shopify/polaris/locales/en.json';
 import '@shopify/polaris/build/esm/styles.css';
-import { AppProvider, Button, ButtonGroup, Card, Form, FormLayout, Frame, Layout, Loading, Modal, Page, SkeletonBodyText, SkeletonDisplayText, SkeletonPage, TextContainer, TextField, Thumbnail } from '@shopify/polaris';
-
+import { 
+  AppProvider, 
+  Button, 
+  ButtonGroup, 
+  Card, 
+  Form, 
+  FormLayout, 
+  Frame, 
+  Layout, 
+  Loading, 
+  Modal, 
+  Page, 
+  SkeletonBodyText, 
+  SkeletonDisplayText, 
+  SkeletonPage, 
+  TextContainer, 
+  TextField, 
+  Thumbnail 
+} from '@shopify/polaris';
 
 let history;
 if (typeof window !== 'undefined' && localStorage.getItem("conversation") != "") {
@@ -12,15 +29,19 @@ if (typeof window !== 'undefined' && localStorage.getItem("conversation") != "")
 }
 export default function Home() {
   const [userInput, setUserInput] = useState("");
-  const [historyOutput, setHistoryOutput] = useState(history.reverse());
+  const [historyOutput, setHistoryOutput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [active, setActive] = useState(true);
+  const handleChange = useCallback(() => setActive(!active), [active]);
+  const toggleIsLoading = useCallback(
+    () => setIsLoading((isLoading) => !isLoading),
+    [],
+  );
   const loadingMarkup = isLoading ? <Loading /> : null;
   const skipToContentRef = useRef(null); 
   const skipToContentTarget = (
     <a id="SkipToContentTarget" ref={skipToContentRef} tabIndex={-1} />
   );
-  const handleChange = useCallback(() => setActive(!active), [active]);
   const activator = useRef(null);
   function clearHistory() {
     localStorage.setItem("conversation", "");
@@ -109,6 +130,8 @@ export default function Home() {
     </SkeletonPage>
   );
 
+  const pageMarkup = isLoading ? loadingPageMarkup : actualPageMarkup;
+
   const modal = (<div>
     <Modal
       activator={activator}
@@ -133,17 +156,15 @@ export default function Home() {
   </div>
   );
 
-  const pageMarkup = isLoading ? loadingPageMarkup : actualPageMarkup;
-
   return (
     <AppProvider i18n={enTranslations}>
         <Frame
           logo={logo}
           skipToContentTarget={skipToContentRef.current}
         >
-        {modal}
         {loadingMarkup}
         {pageMarkup}
+        {modal}
         </Frame>
     </AppProvider>
   );
