@@ -5,39 +5,32 @@ import {
   AppProvider, 
   Button, 
   ButtonGroup, 
-  Card, 
+  Card,
+  DisplayText,
   Form, 
   FormLayout, 
   Frame, 
   Layout, 
-  Loading, 
   Modal, 
   Page, 
-  SkeletonBodyText, 
-  SkeletonDisplayText, 
-  SkeletonPage, 
-  TextContainer, 
+  Stack,
   TextField, 
+  TextStyle,
   Thumbnail 
 } from '@shopify/polaris';
 
-let history;
-if (typeof window !== 'undefined' && localStorage.getItem("conversation") != "") {
-  history = JSON.parse(localStorage.getItem("conversation"));
-} else {
-  history = [];
-}
+
 export default function Home() {
+  let history;
+  if (typeof window !== 'undefined' && localStorage.getItem("conversation") != "") {
+    history = JSON.parse(localStorage.getItem("conversation"));
+  } else {
+    history = [];
+  }
   const [userInput, setUserInput] = useState("");
-  const [historyOutput, setHistoryOutput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [historyOutput, setHistoryOutput] = useState(history.reverse());
   const [active, setActive] = useState(true);
   const handleChange = useCallback(() => setActive(!active), [active]);
-  const toggleIsLoading = useCallback(
-    () => setIsLoading((isLoading) => !isLoading),
-    [],
-  );
-  const loadingMarkup = isLoading ? <Loading /> : null;
   const skipToContentRef = useRef(null); 
   const skipToContentTarget = (
     <a id="SkipToContentTarget" ref={skipToContentRef} tabIndex={-1} />
@@ -57,7 +50,7 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "input": userInput }),
+      body: JSON.stringify({ input: userInput }),
     });
     const data = await response.json();
     let lastPrompt = userInput;
@@ -70,20 +63,29 @@ export default function Home() {
   }
 
   const logo = {
-    width: 50,
-    topBarSource:
-      '/talk.svg',
-    contextualSaveBarSource:
-      '/talk.svg',
-    url: '/',
-    accessibilityLabel: 'AI Fun',
+    width: 75,
+    source:
+      '/public/robot.png',
+    accessibilityLabel: 'Geoffrey the Goaliebot',
   };
-  const historyChildren = historyOutput.length ? historyOutput.map(h => <Card sectioned title={h.prompt}><p>{h.result}</p></Card>) : ""
-  const actualPageMarkup = (
+  const historyChildren = historyOutput.length ? historyOutput.map(h => <Card sectioned key={h.prompt} title={"Question: " + h.prompt}><p><TextStyle variation="strong">Response: </TextStyle>{h.result}</p></Card>) : "";
+  const pageMarkup = (
     <Page 
-      title="Hello, I'm Bit, the Onboarding Buddy Bot."
       narrowWidth={true}
     >
+      <Stack distribution="trailing">
+        <Stack.Item fill>
+          <DisplayText size="extraLarge">Hello, I'm Geoffrey, the Goaliebot.</DisplayText>
+        </Stack.Item>
+        <Stack.Item>
+          <Thumbnail
+            source="/robot.png"
+            size="large"
+            transparent={true}
+            alt="Geoffrey the Goaliebot"
+          />
+        </Stack.Item>
+      </Stack>
       <Layout>
         {skipToContentTarget}
         <Layout.Section>
@@ -108,29 +110,12 @@ export default function Home() {
         </Layout.Section>
         <Layout.Section 
           className="history container"
-          children={historyChildren}
         >
+          {historyChildren}
         </Layout.Section>
       </Layout>
     </Page>
   );
-
-  const loadingPageMarkup = (
-    <SkeletonPage>
-      <Layout>
-        <Layout.Section>
-          <Card sectioned>
-            <TextContainer>
-              <SkeletonDisplayText size="small" />
-              <SkeletonBodyText lines={9} />
-            </TextContainer>
-          </Card>
-        </Layout.Section>
-      </Layout>
-    </SkeletonPage>
-  );
-
-  const pageMarkup = isLoading ? loadingPageMarkup : actualPageMarkup;
 
   const modal = (<div>
     <Modal
@@ -162,7 +147,6 @@ export default function Home() {
           logo={logo}
           skipToContentTarget={skipToContentRef.current}
         >
-        {loadingMarkup}
         {pageMarkup}
         {modal}
         </Frame>
