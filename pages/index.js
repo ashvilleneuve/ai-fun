@@ -99,13 +99,18 @@ export default function Home() {
   const pageMarkup = (
     <Page 
       narrowWidth={true}
+      title="Send questions to goaliebot."
+      titleHidden={true}
     >
       <Layout distribution="fill">
         <Layout.Section oneThird>
-          <DisplayText size="extraLarge">Hello, I'm Geoffrey, the Goaliebot.</DisplayText>
+          <DisplayText 
+            size="extraLarge"
+            element="h2"
+          >Hello, I'm Geoffrey, the Goaliebot.</DisplayText>
         </Layout.Section>
         <Layout.Section oneThird>
-          <img src="../robot.png" alt="Geoffrey the Goaliebot" width='150'></img>
+          <img src="../robot.png" alt="Geoffrey the Goaliebot logo" width='150'></img>
         </Layout.Section>
       </Layout>
       <Layout>
@@ -116,11 +121,14 @@ export default function Home() {
             implicitSubmit={true}
           >
             <FormLayout>
-              <DisplayText size="medium">How can I help?</DisplayText>
+              <DisplayText 
+                size="medium"
+                element="h3"
+              >How can I help?</DisplayText>
               <TextField
                 value={userInput}
                 onChange={(e) => promptHandler(e)}
-                label="How can I help?"
+                label="Type a question for goaliebot."
                 labelHidden={true}
                 inputMode="text"
                 multiline={3}
@@ -128,7 +136,7 @@ export default function Home() {
                 autoComplete="off"
               />
               <ButtonGroup>
-                <Button id="activator" onClick={handleChange} ref={activator}>Clear history</Button>
+                <Button id="activator" onClick={handleChange} ref={activator} ariaControls="">Clear history</Button>
                 <Button primary onClick={onSubmit}>Submit</Button>
               </ButtonGroup>
             </FormLayout>
