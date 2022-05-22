@@ -24,7 +24,7 @@ import {
 
 export default function Home() {
   let history;
-  if (typeof window !== 'undefined' && localStorage.getItem("conversation") != "") {
+  if (typeof window !== 'undefined' && localStorage.getItem("conversation") && localStorage.getItem("conversation") != "") {
     history = JSON.parse(localStorage.getItem("conversation"));
   } else {
     history = [];
