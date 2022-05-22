@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from "react";
+import Head from 'next/head'
 import enTranslations from '@shopify/polaris/locales/en.json';
 import '@shopify/polaris/build/esm/styles.css';
 import { 
@@ -104,7 +105,7 @@ export default function Home() {
           <DisplayText size="extraLarge">Hello, I'm Geoffrey, the Goaliebot.</DisplayText>
         </Layout.Section>
         <Layout.Section oneThird>
-          <img src="../robot.png" alt="Geoffrey the Goaliebot" width='150px'></img>
+          <img src="../robot.png" alt="Geoffrey the Goaliebot" width='150'></img>
         </Layout.Section>
       </Layout>
       <Layout>
@@ -117,13 +118,10 @@ export default function Home() {
             <FormLayout>
               <DisplayText size="medium">How can I help?</DisplayText>
               <TextField
-                ariaActiveDescendant="activator"
-                ariaControls="history_container"
                 value={userInput}
                 onChange={(e) => promptHandler(e)}
                 label="How can I help?"
                 labelHidden={true}
-                type="text"
                 inputMode="text"
                 multiline={3}
                 spellCheck={true}
@@ -172,14 +170,20 @@ export default function Home() {
   );
 
   return (
-    <AppProvider i18n={enTranslations}>
-        <Frame
-          skipToContentTarget={skipToContentRef.current}
-        >
-        {pageMarkup}
-        {modal}
-        {toastMarkup}
-        </Frame>
-    </AppProvider>
+    <html lang="en">
+      <Head>
+        <title>Goaliebot</title>
+        <link rel="icon" href="../robot.png" />
+      </Head>
+      <AppProvider i18n={enTranslations}>
+          <Frame
+            skipToContentTarget={skipToContentRef.current}
+          >
+          {pageMarkup}
+          {modal}
+          {toastMarkup}
+          </Frame>
+      </AppProvider>
+    </html>
   );
 }
