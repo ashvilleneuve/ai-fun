@@ -15,7 +15,7 @@ There is a [hosted demo here](https://ai-fun-ashvill.herokuapp.com/), or you can
 3. Navigate into the project directory
 
    ```bash
-   $ cd openai-quickstart-node
+   $ cd goaliebot
    ```
 
 4. Install the requirements
