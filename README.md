@@ -6,7 +6,7 @@ Created as a response for the FrontEnd Developer Internship application challeng
 
 It uses the [Answers endpoint](https://beta.openai.com/docs/api-reference/answers) of the OpenAI API with the Curie engine. This iteration uses sample-sized source documents with content pulled from two public-facing help documents, as proof of concept only. It is therefore limited in its scope -- it can  answer basic questions about Shopify Scripts and checkout.liquid. It is also not yet integrated with Slack, as this was outside the requirements for this project. 
 
-There is a [hosted demo here](https://ai-fun-ashvill.herokuapp.com/), or you can install it locally:
+There is a [hosted demo here](https://goaliebot.herokuapp.com/), or you can install it locally:
 
 1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/)
 
